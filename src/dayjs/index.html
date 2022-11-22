@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>dayjsで Dateの操作</title>
+    <link rel="stylesheet" type="text/css" href="../reset.css" />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v6.2.1/css/all.css"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v6.2.1/js/all.js"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>本日と指定日の取得</h2>
+      <h3>本日の取得</h3>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format()</span>
+        <p id="today-default"></p>
+      </div>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs(new Date()).format()</span>
+        <p id="today-from-date"></p>
+      </div>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs(new
+          Date().getTime()).format()</span
+        >
+        <p id="today-from-unix"></p>
+      </div>
+      <h3>指定日の取得</h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs('2020-01-01').format()</span
+        >
+        <p id="specify-YYYY-MM-DD"></p>
+      </div>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs('2020/1/1
+          00:00:00').format()</span
+        >
+        <p id="specify-YYYY-M-D-HH-mm-ss"></p>
+      </div>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i>
+          dayjs('20200101000000').format()</span
+        >
+        <p id="specify-YYYYMMDDHHmmss"></p>
+      </div>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs(1577804400000).format()</span
+        >
+        <p id="specify-unix-timestamp"></p>
+      </div>
+
+      <h2>曜日の取得</h2>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs().format('d') or
+          dayjs().day()</span
+        >
+        <p id="week-ja-d"></p>
+      </div>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format('ddd') </span>
+        <p id="week-ja-ddd"></p>
+      </div>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format('dddd') </span>
+        <p id="week-ja-dddd"></p>
+      </div>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format('ddd') </span>
+        <p id="week-en-ddd"></p>
+      </div>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format('dddd') </span>
+        <p id="week-en-dddd"></p>
+      </div>
+
+      <h2>年月日時分ミリ秒ごとに取得</h2>
+      <h3>年を取得：</h3>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format('YY') </span>
+        <p id="parse-year-yy"></p>
+      </div>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs().format('YYYY') or
+          dayjs().year()</span
+        >
+        <p id="parse-year-yyyy"></p>
+      </div>
+      <h3>月を取得：</h3>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format('M') </span>
+        <p id="parse-month-m"></p>
+      </div>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs().format('MM') or
+          dayjs().month()</span
+        >
+        <p id="parse-month-mm"></p>
+      </div>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format('MMM') </span>
+        <p id="parse-month-mmm"></p>
+      </div>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format('MMMM')</span>
+        <p id="parse-month-mmmm"></p>
+      </div>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format('MMM') </span>
+        <p id="parse-month-mmm-ja"></p>
+      </div>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format('MMMM')</span>
+        <p id="parse-month-mmmm-ja"></p>
+      </div>
+      <h3>日を取得：</h3>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format('D') </span>
+        <p id="parse-date-d"></p>
+      </div>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs().format('DD') or
+          dayjs().date()</span
+        >
+        <p id="parse-date-dd"></p>
+      </div>
+      <h3>時を取得：</h3>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format('H')</span>
+        <p id="parse-hour-H"></p>
+      </div>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs().format('HH') or
+          dayjs().hour()</span
+        >
+        <p id="parse-hour-HH"></p>
+      </div>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format('h')</span>
+        <p id="parse-hour-h"></p>
+      </div>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format('hh')</span>
+        <p id="parse-hour-hh"></p>
+      </div>
+      <h3>分を取得：</h3>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format('m')</span>
+        <p id="parse-minute-m"></p>
+      </div>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs().format('mm') or
+          dayjs().minute()</span
+        >
+        <p id="parse-minute-mm"></p>
+      </div>
+      <h3>秒を取得：</h3>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format('s')</span>
+        <p id="parse-second-s"></p>
+      </div>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs().format('ss') or
+          dayjs().second()</span
+        >
+        <p id="parse-second-ss"></p>
+      </div>
+      <h3>ミリ秒を取得：</h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs().format('SSS') or
+          dayjs().millisecond()</span
+        >
+        <p id="parse-millisecond"></p>
+      </div>
+
+      <h2>日付の加算減算</h2>
+      <h3>明日を取得：</h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs().add(1,
+          'd').startOf('day').format()</span
+        >
+        <p id="tomorrow"></p>
+      </div>
+      <h3>昨日を取得：</h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs().subtract(1,
+          'd').endOf('day').format()</span
+        >
+        <p id="yesterday"></p>
+      </div>
+      <h3>月末を取得：</h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i>
+          dayjs().endOf('month').format()</span
+        >
+        <p id="end-of-month"></p>
+      </div>
+      <h3>月初を取得：</h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i>
+          dayjs().startOf('month').format()</span
+        >
+        <p id="start-of-month"></p>
+      </div>
+      <h3>週末を取得：</h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs().endOf('week').format()</span
+        >
+        <p id="end-of-week"></p>
+      </div>
+      <h3>週初めを取得：</h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i>
+          dayjs().startOf('week').format()</span
+        >
+        <p id="start-of-week"></p>
+      </div>
+      <h3>先月を取得（2020-03-31の先月)：</h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs('2020-03-31').subtract(1,
+          'M').format()</span
+        >
+        <p id="last-month"></p>
+      </div>
+      <h3>来月を取得（2020-10-31の来月)：</h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs('2020-10-31').add(1,
+          'M').format()</span
+        >
+        <p id="next-month"></p>
+      </div>
+
+      <h2>日付を比較する</h2>
+      <h3>比較1：2020-01-01は2020-01-02より過去か</h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i>
+          dayjs('2020-01-01').isSameOrBefore(dayjs('2020-01-02'))</span
+        >
+
+        <p id="compare-1"></p>
+      </div>
+      <h3>比較2：2020-01-01 00:00:00は2020-01-01 00:00:01より過去か</h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs('2020-01-01
+          00:00:00').isSameOrBefore(dayjs('2020-01-01 00:00:01'))</span
+        >
+        <p id="compare-2"></p>
+      </div>
+      <h3>比較3：2020-01-01 00:00:00と2020-01-01 00:00:00は同じか</h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs('2020-01-01
+          00:00:00').isSameOrBefore(dayjs('2020-01-01 00:00:00'))</span
+        >
+        <p id="compare-3"></p>
+      </div>
+
+      <h2>日付の差分を求める</h2>
+      <h3>2020-01-05 05:30:30と2020-01-01 00:00:00の差分をm秒で求める：</h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs("2020-01-05
+          05:30:30").diff(dayjs("2020-01-01 00:00:00"))</span
+        >
+        <p id="diff-1"></p>
+      </div>
+      <h3>2020-01-05 05:30:30と2020-01-01 00:00:00の月の差分を求める：</h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs("2020-01-05
+          05:30:30").diff(dayjs("2020-01-01 00:00:00"), 'month')</span
+        >
+        <p id="diff-2"></p>
+      </div>
+      <h3>2020-01-05 05:30:30と2020-01-01 00:00:00の日の差分を求める：</h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs("2020-01-05
+          05:30:30").diff(dayjs("2020-01-01 00:00:00"), 'day')</span
+        >
+        <p id="diff-3"></p>
+      </div>
+      <h3>2020-01-05 05:30:30と2020-01-01 00:00:00の時の差分を求める：</h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs("2020-01-05
+          05:30:30").diff(dayjs("2020-01-01 00:00:00"), 'hour')</span
+        >
+        <p id="diff-4"></p>
+      </div>
+      <h3>
+        2020-01-05 05:30:30と2020-01-01 00:00:00の月の差分を小数点まで求める：
+      </h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs("2020-01-05
+          05:30:30").diff(dayjs("2020-01-01 00:00:00"), 'month', true)</span
+        >
+        <p id="diff-5"></p>
+      </div>
+      <h3>
+        2020-01-05 05:30:30と2020-01-01 00:00:00の日の差分を小数点まで求める：
+      </h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs("2020-01-05
+          05:30:30").diff(dayjs("2020-01-01 00:00:00"), 'day', true)</span
+        >
+        <p id="diff-6"></p>
+      </div>
+      <h3>
+        2020-01-05 05:30:30と2020-01-01 00:00:00の時の差分を小数点まで求める：
+      </h3>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs("2020-01-05
+          05:30:30").diff(dayjs("2020-01-01 00:00:00"), 'hour', true)</span
+        >
+        <p id="diff-7"></p>
+      </div>
+      <h2>書式のフォーマットを指定</h2>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format('YYYYMMDD')</span>
+        <p id="format-YYYYMMDD"></p>
+      </div>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs().format('YYYY/MM/DD')</span
+        >
+        <p id="format-YYYY_MM_DD"></p>
+      </div>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs().format('YYYY-MM-DD
+          HH:mm:ss')</span
+        >
+        <p id="format-YYYY-MM-DD-HH-mm-ss"></p>
+      </div>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs().format('MM-DD')</span>
+        <p id="format-MM-DD"></p>
+      </div>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs().format('HH:mm:ss.SSS')</span
+        >
+        <p id="format-HH-mm-ss-SSS"></p>
+      </div>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i>
+          dayjs().format('YYYY年MM月DD日(ddd)')</span
+        >
+        <p id="format-YYYY-MM-DD-ja-day"></p>
+      </div>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs().format('YYYY/MM/DD
+          (ddd)')</span
+        >
+        <p id="format-YYYY-MM-DD-en-day"></p>
+      </div>
+      <h2>UNIXタイムスタンプ</h2>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs(1577804400000).format()</span
+        >
+        <p id="unix-ok"></p>
+      </div>
+      <div class="block">
+        <span><i class="fa-solid fa-code"></i> dayjs(1577804400).format()</span>
+        <p id="unix-delimiter-10-ng"></p>
+      </div>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs(1577804400 *
+          1000).format()</span
+        >
+        <p id="unix-delimiter-10-ok"></p>
+      </div>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs(1577804400000).unix()</span
+        >
+        <p id="unix"></p>
+      </div>
+      <div class="block">
+        <span
+          ><i class="fa-solid fa-code"></i> dayjs(1577804400000).valueOf()</span
+        >
+        <p id="unix-value-of"></p>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.6/locale/ja.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.6/plugin/isSameOrBefore.js"></script>
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
